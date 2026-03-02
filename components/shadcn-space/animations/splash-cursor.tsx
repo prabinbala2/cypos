@@ -66,8 +66,8 @@ function SplashCursor({
       config.SHADING = false;
     }
 
-    function getWebGLContext(canvas) {
-      const params = {
+    function getWebGLContext(canvas: HTMLCanvasElement) {
+      const params: WebGLContextAttributes = {
         alpha: true,
         depth: false,
         stencil: false,
