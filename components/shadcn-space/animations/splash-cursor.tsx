@@ -27,18 +27,31 @@ function SplashCursor({
     // Track if the effect is still active for cleanup
     let isActive = true;
 
-    function pointerPrototype() {
-      this.id = -1;
-      this.texcoordX = 0;
-      this.texcoordY = 0;
-      this.prevTexcoordX = 0;
-      this.prevTexcoordY = 0;
-      this.deltaX = 0;
-      this.deltaY = 0;
-      this.down = false;
-      this.moved = false;
-      this.color = [0, 0, 0];
-    }
+  type Pointer = {
+  id: number;
+  texcoordX: number;
+  texcoordY: number;
+  prevTexcoordX: number;
+  prevTexcoordY: number;
+  deltaX: number;
+  deltaY: number;
+  down: boolean;
+  moved: boolean;
+  color: [number, number, number];
+};
+
+function pointerPrototype(this: Pointer) {
+  this.id = -1;
+  this.texcoordX = 0;
+  this.texcoordY = 0;
+  this.prevTexcoordX = 0;
+  this.prevTexcoordY = 0;
+  this.deltaX = 0;
+  this.deltaY = 0;
+  this.down = false;
+  this.moved = false;
+  this.color = [0, 0, 0];
+}
 
     let config = {
       SIM_RESOLUTION,
